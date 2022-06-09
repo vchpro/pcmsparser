@@ -88,7 +88,7 @@ while True:
             nowId += 1
             nowO = contests[nowId][1]
 
-        tasks.append([0, contests[nowId][0], tasks_p.get("title"), nowId, f"{contests[nowId][2]}/problem/{tasks_p.get_text()}"])
+        tasks.append([0, contests[nowId][0], tasks_p.get("title"), f"{contests[nowId][2]}/problem/{tasks_p.get_text()}"])
         nowO -= 1
 
     nowId = 0
