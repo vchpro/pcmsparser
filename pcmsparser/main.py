@@ -62,7 +62,7 @@ def build_view(tasks):
     keys = ['Решено у', 'Контест', 'Задача', 'Ссылка']
 
     for task in tasks:
-        e.append([str(task[0]).center(10), task[1], task[2], task[3]])
+        e.append([str(task[0]).center(10) if len(str(task[0])) == 2 else str(task[0]).center(11), task[1], task[2], task[3]])
 
     print(tabulate(e, headers=keys, tablefmt='fancy_grid', stralign='center'))
 
