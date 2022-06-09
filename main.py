@@ -23,6 +23,7 @@ try:
 except Exception as e:
     print(f"Невозможно получить страницу {url}")
     print(f"{e}")
+    time.sleep(10)
     sys.exit(0)
 
 soup = BeautifulSoup(r.text, features="html.parser")
@@ -128,6 +129,7 @@ while True:
     except Exception as e:
         print(f"Невозможно получить страницу {url}")
         print(f"{e}")
+        time.sleep(10)
         sys.exit(0)
 
     soup = BeautifulSoup(r.text, features="html.parser")
