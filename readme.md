@@ -17,6 +17,7 @@ delay = 120 # задержка перед обновлением страниц�
 
 Установка библиотек вручную:
 ```python
+cd pcmsparser
 pip install -r requirements.txt
 ```
 
@@ -26,6 +27,7 @@ pip install -r requirements.txt
 
 Запуск вручную:
 ```python
+cd pcmsparser
 python main.py
 ```
 
