@@ -1,3 +1,3 @@
 @echo off
 pip install -r requirements.txt
-python main.py
+start /max python main.py

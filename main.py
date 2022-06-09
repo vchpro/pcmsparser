@@ -13,6 +13,7 @@ def cls():
 
 r = None
 
+cls()
 try:
     print("Загружаем страницу...")
     r = requests.get(url)
@@ -23,7 +24,7 @@ try:
 except Exception as e:
     print(f"Невозможно получить страницу {url}")
     print(f"{e}")
-    time.sleep(10)
+    time.sleep(30)
     sys.exit(0)
 
 soup = BeautifulSoup(r.text, features="html.parser")
@@ -129,7 +130,7 @@ while True:
     except Exception as e:
         print(f"Невозможно получить страницу {url}")
         print(f"{e}")
-        time.sleep(10)
+        time.sleep(30)
         sys.exit(0)
 
     soup = BeautifulSoup(r.text, features="html.parser")
