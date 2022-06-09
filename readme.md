@@ -30,7 +30,7 @@ python main.py
 Вы можете внести свой вклад в проект, создав полезный Issue или Pull Request.
 
 ## Скриншот скрипта
-[Скриншот скрипта](https://github.com/vchpro/pcmsparser/raw/main/github_demo.png)
+[Скриншот скрипта](https://github.com/vchpro/pcmsparser/raw/main/github_demo.jpg)
 
 ## Лицензия
 [MIT](https://choosealicense.com/licenses/mit/)
