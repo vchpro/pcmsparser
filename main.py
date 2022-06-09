@@ -6,6 +6,7 @@ import time
 
 from config import url, delay
 
+
 def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -31,7 +32,6 @@ users_page = soup.select(".name")
 for user_p in users_page:
     users.append(user_p.get_text())
 
-
 this_user = ""
 while this_user == "":
     cls()
@@ -49,6 +49,18 @@ while this_user == "":
         print(f"{e}")
 
 cls()
+
+
+def build_view(tasks):
+    tasks.sort(key=lambda x: [-x[0], x[1], x[2]])
+    lenn = 129
+    print("-" * lenn)
+    print(f"|{'Количество решивших'.center(25)}|{'Контест'.center(50)}|{'Задача'.center(50)}|")
+    print("-" * lenn)
+    for tasks in tasks:
+        print(f"|{str(tasks[0]).center(25)}|{tasks[1].center(50)}|{tasks[2].center(50)}|")
+        print("-" * lenn)
+
 
 
 while True:
@@ -71,7 +83,7 @@ while True:
             nowId += 1
             nowO = contests[nowId][1]
 
-        tasks.append([0, contests[nowId][0], tasks_p.get("title")])
+        tasks.append([0, contests[nowId][0], tasks_p.get("title"), nowId])
         nowO -= 1
 
     nowId = 0
@@ -97,11 +109,12 @@ while True:
             unsolved_tasks.append(t)
 
     unsolved_tasks.sort()
-    print(unsolved_tasks)
 
-    time.sleep(delay / 60)
+    cls()
+    build_view(unsolved_tasks)
+
+    time.sleep(delay)
     try:
-        print("Загружаем страницу...")
         r = requests.get(url)
 
         if str(r.status_code) != "200":
