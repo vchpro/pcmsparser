@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import sys
 import os
 import time
-
+from tabulate import tabulate
 from config import url, delay
 
 
@@ -54,12 +54,15 @@ cls()
 def build_view(tasks):
     tasks.sort(key=lambda x: [-x[0], x[1], x[2]])
     lenn = 129
-    print("-" * lenn)
-    print(f"|{'Количество решивших'.center(25)}|{'Контест'.center(50)}|{'Задача'.center(50)}|")
-    print("-" * lenn)
-    for tasks in tasks:
-        print(f"|{str(tasks[0]).center(25)}|{tasks[1].center(50)}|{tasks[2].center(50)}|")
-        print("-" * lenn)
+
+
+    e = []
+    keys = ['Количество решивших', 'Контест', 'Задача', 'Ссылка']
+
+    for task in tasks:
+        e.append(task)
+
+    print(tabulate(e, headers=keys, tablefmt='fancy_grid'))
 
 
 
@@ -69,7 +72,9 @@ while True:
     contests_page = soup.select(".contest")
 
     for contest_p in contests_page:
-        contests.append([contest_p.get_text(), int(contest_p.get("colspan"))])
+        link = contest_p.select_one("a").get("href")
+        link = link[0:link.rfind("/")]
+        contests.append([contest_p.get_text(), int(contest_p.get("colspan")), link])
 
     tasks = []
 
@@ -83,7 +88,7 @@ while True:
             nowId += 1
             nowO = contests[nowId][1]
 
-        tasks.append([0, contests[nowId][0], tasks_p.get("title"), nowId])
+        tasks.append([0, contests[nowId][0], tasks_p.get("title"), nowId, f"{contests[nowId][2]}/problem/{tasks_p.get_text()}"])
         nowO -= 1
 
     nowId = 0
