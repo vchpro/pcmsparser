@@ -57,12 +57,12 @@ def build_view(tasks):
 
 
     e = []
-    keys = ['Количество решивших', 'Контест', 'Задача', 'Ссылка']
+    keys = ['Решено у', 'Контест', 'Задача', 'Ссылка']
 
     for task in tasks:
         e.append(task)
 
-    print(tabulate(e, headers=keys, tablefmt='fancy_grid'))
+    print(tabulate(e, headers=keys, tablefmt='fancy_grid', stralign='center'))
 
 
 
