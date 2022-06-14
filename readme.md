@@ -34,7 +34,7 @@ python main.py
 
 
 ## Участие в разработке
-Вы можете внести свой вклад в проект, создав полезный Issue или Pull Request.
+Вы можете внести свой вклад в проект, создав Issue или Pull Request.
 
 ## Скриншот скрипта
 [Скриншот скрипта](https://github.com/vchpro/pcmsparser/raw/main/pcmsparser/github_demo.jpg)
