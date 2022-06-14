@@ -1,3 +1,2 @@
 @echo off
-cd pcmsparser
-pip install -r requirements.txt
+pip install -r pcmsparser/requirements.txt

@@ -1,3 +1,2 @@
 @echo off
-cd pcmsparser
-start /max python main.py
+start /max python pcmsparser/main.py
